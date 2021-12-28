@@ -1,43 +1,19 @@
-# Q1
-
-echo -num "Enter numnber : "
-read num
+echo -n "Enter number : "
+read n
  
-rem=$(( $num % 2 ))
+rem=$(( $n % 2 ))
  
 if [ $rem -eq 0 ]
-then    
-  echo "$num is even number"
+then
+  echo "$n is even number"
 else
-  for (( i=1;i<=$num ;i++))
+#-n -> allows not to append to next line
+for((i=n; i>=1; i--))
 do
-   for (( j=$num;j>=i;j-- ))
-   do
-   echo -n " "
-   done
-   for (( c=1;c<=i;c++ ))
-   do
-   echo -n " *"
-   sum=`expr $sum + 1`
-   done
-echo ""
-done
-d_max=`expr $num - 1`
-for (( i=$d_max;i>=1;i--))
-do
-   for (( j=i;j<=$d_max;j++ ))
-   do
-   if [ $j -eq $d_max ]
-   then
-   echo -n " "
-   fi
-   echo -n " "
-   done
-   for (( c=1;c<=i;c++ ))
-   do
-   echo -n " *"
-   sum=`expr $sum + 1`
-   done
-echo ""
+  for((j=1; j<=i; j++))
+  do
+    echo -n "* "
+  done
+  echo
 done
 fi
